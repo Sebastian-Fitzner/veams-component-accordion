@@ -25,6 +25,11 @@ Latest version is ```v2.0.0```
 
 Index of panel to be opened on init (zero based)
 
+#### openByHash
+`Type: Boolean` | `Default: false`
+
+If set to true, panel can be opened by url hash referencing the id of the panel
+
 #### openOnViewports
 `Type: Array` | `Default: ['desktop', 'tablet-large', 'tablet-small']`
 
