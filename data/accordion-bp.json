@@ -1,26 +1,58 @@
 {
-	"simple": {
-		"settings": {
-			"contextClass": "default",
-			"classes": false
-		}
-	},
-	"custom": {
-		"settings": {
-			"contextClass": "custom",
-			"classes": "is-some-modifier",
-			"jsOptions": [
-				{
-					"jsKey": "openIndex",
-					"jsValue": 0,
-					"jsObject": true
-				},
-				{
-					"jsKey": "singleOpen",
-					"jsValue": true,
-					"jsObject": true
-				}
-			]
+	"variations": {
+		"simple": {
+			"docs": {
+				"variationName": "Simple Accordion"
+			},
+			"settings": {
+				"contextClass": "default",
+				"classes": false
+			},
+			"content": {
+				"items": [
+					{
+						"itemId": "test-1",
+						"itemBtnText": "Item 1"
+					},
+					{
+						"itemId": "test-2",
+						"itemBtnText": "Item 2"
+					}
+				]
+			}
+		},
+		"singleOpen": {
+			"docs": {
+				"variationName": "Single Open Accordion with Default Openings"
+			},
+			"settings": {
+				"contextClass": "default",
+				"classes": "is-some-modifier",
+				"jsOptions": [
+					{
+						"jsKey": "openIndex",
+						"jsValue": 0,
+						"jsObject": true
+					},
+					{
+						"jsKey": "singleOpen",
+						"jsValue": true,
+						"jsObject": true
+					}
+				]
+			},
+			"content": {
+				"items": [
+					{
+						"itemId": "test-2-1",
+						"itemBtnText": "Item 1"
+					},
+					{
+						"itemId": "test-2-2",
+						"itemBtnText": "Item 2"
+					}
+				]
+			}
 		}
 	}
 }

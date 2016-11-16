@@ -2,7 +2,7 @@
  * Represents a simple accordion with transitions and max-height.
  *
  * @module Accordion
- * @version v2.0.0
+ * @version v2.0.1
  *
  * @author Sebastian Fitzner
  * @author Andy Gutsche
@@ -11,11 +11,11 @@
 /**
  * Requirements
  */
-import Helpers from '../../utils/helpers';
-import App from '../../app';
-import AppModule from '../_global/module';
+import App from 'app';
+import AppModule from 'app-module';
 
-var $ = App.$;
+const $ = App.$;
+const Helpers = App.Helpers;
 
 /**
  * Class Accordion
@@ -23,24 +23,25 @@ var $ = App.$;
 class Accordion extends AppModule {
 	constructor(obj) {
 		let options = {
-			openIndex: null,
-			openOnViewports: [
-				'desktop',
-				'tablet-large',
-				'tablet-small'
-			], // array: viewport names - eg.: ['mobile', 'tablet', 'desktop-small', 'desktop']
-			singleOpen: false,
 			activeClass: 'is-active',
-			openClass: 'is-open',
-			closeClass: 'is-closed',
-			calculatingClass: 'is-calculating',
-			unresolvedClass: 'is-unresolved',
-			removeStyles: false, // TODO
-			dataMaxAttr: 'data-js-height',
 			accordionBtn: '[data-js-atom="accordion-btn"]',
 			accordionContent: '[data-js-atom="accordion-content"]',
+			calculatingClass: 'is-calculating',
+			clickHandler: 'click',
+			closeClass: 'is-closed',
+			dataMaxAttr: 'data-js-height',
+			openByHash: false,
+			openClass: 'is-open',
+			openIndex: null,
+			openOnViewports: [
+				'tablet-small',
+				'tablet-large',
+				'desktop'
+			], // array: viewport names - eg.: ['mobile', 'tablet', 'desktop-small', 'desktop']
+			removeStyles: false, // TODO
+			singleOpen: false,
 			tabMode: false,
-			openByHash: false
+			unresolvedClass: 'is-unresolved'
 		};
 
 		super(obj, options);
@@ -57,7 +58,7 @@ class Accordion extends AppModule {
 	static get info() {
 		return {
 			name: 'Accordion',
-			version: '2.0.0',
+			version: '2.0.1',
 			vc: true,
 			mod: false // set to true if source was modified in project
 		};
@@ -100,6 +101,7 @@ class Accordion extends AppModule {
 		this.$accordionBtns = $(this.options.accordionBtn, this.$el);
 		this.$target = null;
 		this.$btn = null;
+		this.openIndex = this.options.openIndex;
 
 		if (this.options.openByHash) {
 			let idx = this.getIndexByHash();
@@ -108,9 +110,6 @@ class Accordion extends AppModule {
 		}
 		else if (this.options.tabMode && !this.options.openIndex) {
 			this.openIndex = 0;
-		}
-		else {
-			this.openIndex = this.options.openIndex;
 		}
 
 		// call super
@@ -128,13 +127,12 @@ class Accordion extends AppModule {
 		let fnOnHashChange = this.onHashChange.bind(this);
 
 		// Local events
-		this.$el.on(Helpers.clickHandler(), this.options.accordionBtn, fnHandleClick);
+		this.$el.on(this.options.clickHandler, this.options.accordionBtn, fnHandleClick);
 
+		// Global events
 		if (this.options.openByHash) {
 			$(window).on(App.EVENTS.hashchange, fnOnHashChange);
 		}
-
-		// Global events
 		App.Vent.on(App.EVENTS.resize, fnRender);
 		App.Vent.on(App.EVENTS.accordion.closeAll, fnCloseAll);
 		App.Vent.on(App.EVENTS.accordion.openAll, fnOpenAll);
@@ -152,7 +150,6 @@ class Accordion extends AppModule {
 
 		// Open on index if set in options
 		if (typeof this.openIndex === 'number') {
-
 			if (this.options.tabMode || this.options.openOnViewports.indexOf(App.currentMedia) !== -1) {
 				this.activateBtn(this.$accordionBtns.eq(this.openIndex));
 				this.slideDown(this.$accordionContents.eq(this.openIndex));
@@ -291,13 +288,12 @@ class Accordion extends AppModule {
 	 * @param {Object} $item - jQuery object of item
 	 */
 	slideUp($item) {
-
 		$item
-				.css('height', 0)
-				.removeAttr('style')
-				.attr('aria-expanded', 'false')
-				.removeClass(this.options.openClass)
-				.addClass(this.options.closeClass);
+			.css('height', 0)
+			.removeAttr('style')
+			.attr('aria-expanded', 'false')
+			.removeClass(this.options.openClass)
+			.addClass(this.options.closeClass);
 	}
 
 	/**
@@ -306,12 +302,12 @@ class Accordion extends AppModule {
 	 * @param {Object} $item - jQuery object of item
 	 */
 	slideDown($item) {
-
+		console.log(' $item.attr(): ', $item.attr('data-js-height'));
 		$item
-				.css('height', $item.attr('data-js-height'))
-				.attr('aria-expanded', 'true')
-				.removeClass(this.options.closeClass)
-				.addClass(this.options.openClass);
+			.css('height', $item.attr('data-js-height') + 'px')
+			.attr('aria-expanded', 'true')
+			.removeClass(this.options.closeClass)
+			.addClass(this.options.openClass);
 	}
 
 	/**

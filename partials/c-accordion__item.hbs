@@ -1,21 +1,17 @@
-{{! ---
- Accordion Item
- --- }}
-
-{{#unless options.noWrapper}}
+{{#unless options.settings.accHideWrapper}}
 	<div class="accordion__item">
 {{/unless}}
 	<div class="accordion__header">
-		<a href="#{{options.accItemId}}" class="accordion__btn" data-js-atom="accordion-btn">
+		<a href="#{{options.accItemId}}" class="accordion__btn" data-js-atom="accordion-btn" role="tab" aria-controls="{{options.accItemId}}">
 			<span class="accordion__btn-inner">{{options.accButton}}</span>
 		</a>
 	</div>
 
-	<div class="accordion__content" id="{{options.accItemId}}" data-js-atom="accordion-content">
+	<div class="accordion__content" id="{{options.accItemId}}" data-js-atom="accordion-content" role="tabpanel" aria-labelledby="{{options.accItemId}}-heading">
 		<div class="accordion__content-inner">
 			{{{yield}}}
 		</div>
 	</div>
-{{#unless options.noWrapper}}
+{{#unless options.settings.accHideWrapper}}
 	</div>
 {{/unless}}

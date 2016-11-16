@@ -1,3 +1,8 @@
+### v2.0.1
+- Clean up
+- Add roles 
+- Add new structure
+
 ### v2.0.0
 - make module compatible with VeamsQuery
 - add support for url hash induced panel opening
