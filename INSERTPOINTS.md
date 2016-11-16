@@ -40,6 +40,10 @@
 // @INSERT :: START @tag: scss-import 
 @import "components/_c-accordion";
 // @INSERT :: END
+
+// @INSERT :: START @tag: scss-import-self-contained
+@import "../templating/partials/components/accordion/scss/_c-accordion";
+// @INSERT :: END
 ```
 
 ### Include: JavaScript
