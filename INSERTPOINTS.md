@@ -3,33 +3,18 @@
 
 ``` hbs
 {{! @INSERT :: START @id: accordion, @tag: component-partial }}
-{{#with accordion-bp.simple}}
-	{{! WrapWith START: Accordion }}
-		{{#wrapWith "c-accordion" data=this.accordionOptions}}
-		{{! WrapWith START: Item }}
-			{{#wrapWith "c-accordion__item" accItemId="test-1" accButton="Item 1"}}
-				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab aliquid assumenda, ducimus facilis inventore iste labore laborum libero nam necessitatibus neque nulla numquam perspiciatis rem, repudiandae sed soluta veniam vero.
-			{{/wrapWith}}
-			{{#wrapWith "c-accordion__item" accItemId="test-2" accButton="Item 2"}}
-				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab aliquid assumenda, ducimus facilis inventore iste labore laborum libero nam necessitatibus neque nulla numquam perspiciatis rem, repudiandae sed soluta veniam vero.
-			{{/wrapWith}}
-		{{! WrapWith END: Item }}
-		{{/wrapWith}}
-	{{! WrapWith END: Accordion }}
-{{/with}}
-
-{{#with accordion-bp.custom}}
-{{! WrapWith START: Accordion }}
-	{{#wrapWith "c-accordion" data=this.accordionOptions}}
-	{{! WrapWith START: Item }}
-		{{#wrapWith "c-accordion__item" accItemId="test-3" accButton="Item 3"}}
-			Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab aliquid assumenda, ducimus facilis inventore iste labore laborum libero nam necessitatibus neque nulla numquam perspiciatis rem, repudiandae sed soluta veniam vero.
-		{{/wrapWith}}
-		{{#wrapWith "c-accordion__item" accItemId="test-4" accButton="Item 4"}}
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab aliquid assumenda, ducimus facilis inventore iste labore laborum libero nam necessitatibus neque nulla numquam perspiciatis rem, repudiandae sed soluta veniam vero.		{{/wrapWith}}
-	{{! WrapWith END: Item }}
-	{{/wrapWith}}
-{{! WrapWith END: Accordion }}
+{{#with accordion-bp.variations.simple}}
+    {{! WrapWith START: Accordion }}
+    {{#wrapWith "c-accordion" settings=this.settings}}
+    {{! WrapWith START: Item }}
+        {{#each content.items}}
+            {{#wrapWith "c-accordion__item" accItemId=this.itemId accButton=itemBtnText}}
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab aliquid assumenda, ducimus facilis inventore iste labore laborum libero nam necessitatibus neque nulla numquam perspiciatis rem, repudiandae sed soluta veniam vero.
+            {{/wrapWith}}
+        {{/each}}
+    {{! WrapWith END: Item }}
+    {{/wrapWith}}
+    {{! WrapWith END: Accordion }}
 {{/with}}
 {{! @INSERT :: END }}
 ```
