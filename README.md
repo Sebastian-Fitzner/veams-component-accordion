@@ -1,5 +1,7 @@
 # Accordion
 
+Todo: Tabmode CSS
+
 The component represents a simple accordion with `transitions` and `max-height`.
 
 Accordions are elements used to expand and collapse content that is broken into logical sections, much like tabs.
