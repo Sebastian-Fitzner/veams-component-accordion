@@ -57,6 +57,11 @@ Define the closing class for accordion content items.
 
 Define the attribute in which the calculated height is saved.
 
+#### openAllOnInit
+`Type: Boolean` | `Default: false`
+
+If set to true, all panels stays open on render.
+
 #### openByHash
 `Type: Boolean` | `Default: false`
 

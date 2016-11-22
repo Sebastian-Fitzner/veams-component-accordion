@@ -30,6 +30,7 @@ class Accordion extends AppModule {
 			clickHandler: 'click',
 			closeClass: 'is-closed',
 			dataMaxAttr: 'data-js-height',
+			openAllOnInit: false,
 			openByHash: false,
 			openClass: 'is-open',
 			openIndex: null,
@@ -147,6 +148,10 @@ class Accordion extends AppModule {
 		this.removeStyles();
 		this.saveHeights(this.$accordionContents);
 		this.closeAll();
+
+		if (this.options.openAllOnInit) {
+			this.openAll();
+		}
 
 		// Open on index if set in options
 		if (typeof this.openIndex === 'number') {
@@ -302,7 +307,6 @@ class Accordion extends AppModule {
 	 * @param {Object} $item - jQuery object of item
 	 */
 	slideDown($item) {
-		console.log(' $item.attr(): ', $item.attr('data-js-height'));
 		$item
 			.css('height', $item.attr('data-js-height') + 'px')
 			.attr('aria-expanded', 'true')
