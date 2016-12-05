@@ -35,18 +35,18 @@
 
 #### Import
 ``` js
-// @INSERT :: START @tag: js-import 
+// @INSERT :: START @tag: js-import //
 import Accordion from './modules/accordion/accordion';
 // @INSERT :: END/
 
-/ @INSERT :: START @tag: js-import-self-contained
+/ @INSERT :: START @tag: js-import-self-contained //
 import Accordion from '../templating/partials/components/accordion/js/accordion';
 // @INSERT :: END
 ```
 
 #### Initializing in Veams V2
 ``` js
-// @INSERT :: START @tag: js-init-v2 
+// @INSERT :: START @tag: js-init-v2 //
 /**
  * Init Accordion
  */
@@ -60,7 +60,7 @@ Helpers.loadModule({
 
 #### Initializing in Veams V3
 ``` js
-// @INSERT :: START @tag: js-init-v3  
+// @INSERT :: START @tag: js-init-v3 //
 /**
  * Init Accordion
  */
