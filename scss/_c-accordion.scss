@@ -69,7 +69,7 @@ Context: Default
 		color: #666;
 		display: block;
 		font-size: 2rem;
-		padding: 1rem * 2.4 0 1rem * 2.2 0;
+		padding: 1rem * 2.4 1rem 1rem * 2.2 1rem;
 		position: relative;
 		text-decoration: none;
 		text-transform: uppercase;
@@ -102,5 +102,9 @@ Context: Default
 
 	.accordion__icon {
 		position: relative;
+	}
+
+	.accordion__content-inner {
+		padding: 1rem 0;
 	}
 }

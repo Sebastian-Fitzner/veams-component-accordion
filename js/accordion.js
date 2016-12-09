@@ -2,7 +2,7 @@
  * Represents a simple accordion with transitions and max-height.
  *
  * @module Accordion
- * @version v1.1.2
+ * @version v2.0.3
  *
  * @author Sebastian Fitzner
  * @author Andy Gutsche
@@ -56,7 +56,7 @@ class Accordion extends AppModule {
 	static get info() {
 		return {
 			name: 'Accordion',
-			version: '1.1.2',
+			version: '2.0.3',
 			vc: true,
 			mod: false // set to true if source was modified in project
 		};

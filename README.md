@@ -1,134 +1,72 @@
+<p align='right'>
+    <a href='https://badge.fury.io/bo/veams-component-accordion'><img src='https://badge.fury.io/bo/veams-component-accordion.svg' alt='Bower version' height='20'></a>
+    <a href='https://gitter.im/Sebastian-Fitzner/Veams?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge'><img src='https://badges.gitter.im/Sebastian-Fitzner/Veams.svg' alt='Gitter Chat' /></a>
+</p>
+
 # Accordion
 
-This component is based on the blueprint of Veams-Components. 
+## Description
 
-It represents a simple accordion with `transitions` and `max-height`.
+The component represents a simple accordion with `transitions` and `max-height`. 
 
-## Version
+Accordions are elements used to expand and collapse content that is broken into logical sections, much like tabs.
 
-Latest version is ```v1.1.2```
+The accordion is based on the blueprint of Veams-Components and is a wrap-with component to support flexible content with predefined surrounded markup.
+
+The accordion is jQuery-free (we use Veams-Query) and contains some accessiblity functionality.
+
+-----------
 
 ## Requirements
+- `Veams-JS >= v4.0.0` - Basic JavaScript library. 
+- `_get-media.scss` - Contains media queries for JavaScript.
 
-### JavaScript
-- `Veams-JS >= v3.6.0`
+-----------
 
-### Sass
-- `_get-media.scss`
+## Installation 
 
-## Usage
+### Installation with Veams
 
-### Options:
+`veams install vc accordion`
 
-#### openIndex
-`Type: Number` | `Default: false`
+### Installation with Bower
 
-Index of panel to be opened on init (zero based)
+`bower install veams-component-accordion --save`
 
-#### openOnViewports
-`Type: Array` | `Default: ['desktop', 'tablet-large', 'tablet-small']`
+----------- 
 
-Viewports on which the openIndex panel is opened on init
+## Fields
 
-#### singleOpen
-`Type: Boolean` | `Default: false`
+### `c-accordion.hbs`
 
-If set to true, only one panel can be open at the same time
+#### Settings
+- settings.accContextClass {`String`} [default] - _Context class of component._
+- settings.accClasses {`String`} - _Modifier classes for component._
+- settings.accJsOptions {`Object`} - _JavaScript options which gets stringified._
 
-#### tabMode
-`Type: Boolean` | `Default: false`
+### `c-accordion__item.hbs`
 
-If set to true, the accordion behaves like a tab module (click on active button will not close corresponding panel).
+#### Settings
+- settings.accHideWrapper {`Boolean`} - _Hide wrapper div `.accordion__item`._
 
-### Include: Page
+#### Further Parameters 
+- accItemId {`String`} - _Id of the accordion item._
+- accButton {`String`} - _Button text for accordion item._
 
-``` hbs
-{{! @INSERT :: START @id: accordion, @tag: component-partial }}
-{{#with accordion-bp.simple}}
-	{{! WrapWith START: Accordion }}
-		{{#wrapWith "c-accordion" data=this.accordionOptions}}
-		{{! WrapWith START: Item }}
-			{{#wrapWith "c-accordion__item" accItemId="test-1" accButton="Item 1"}}
-				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab aliquid assumenda, ducimus facilis inventore iste labore laborum libero nam necessitatibus neque nulla numquam perspiciatis rem, repudiandae sed soluta veniam vero.
-			{{/wrapWith}}
-			{{#wrapWith "c-accordion__item" accItemId="test-2" accButton="Item 2"}}
-				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab aliquid assumenda, ducimus facilis inventore iste labore laborum libero nam necessitatibus neque nulla numquam perspiciatis rem, repudiandae sed soluta veniam vero.
-			{{/wrapWith}}
-		{{! WrapWith END: Item }}
-		{{/wrapWith}}
-	{{! WrapWith END: Accordion }}
-{{/with}}
+## JavaScript Options
 
-{{#with accordion-bp.custom}}
-{{! WrapWith START: Accordion }}
-	{{#wrapWith "c-accordion" data=this.accordionOptions}}
-	{{! WrapWith START: Item }}
-		{{#wrapWith "c-accordion__item" accItemId="test-3" accButton="Item 3"}}
-			Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab aliquid assumenda, ducimus facilis inventore iste labore laborum libero nam necessitatibus neque nulla numquam perspiciatis rem, repudiandae sed soluta veniam vero.
-		{{/wrapWith}}
-		{{#wrapWith "c-accordion__item" accItemId="test-4" accButton="Item 4"}}
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab aliquid assumenda, ducimus facilis inventore iste labore laborum libero nam necessitatibus neque nulla numquam perspiciatis rem, repudiandae sed soluta veniam vero.		{{/wrapWith}}
-	{{! WrapWith END: Item }}
-	{{/wrapWith}}
-{{! WrapWith END: Accordion }}
-{{/with}}
-{{! @INSERT :: END }}
-```
-
-### Include: SCSS
-
-``` scss
-// @INSERT :: START @tag: scss-import 
-@import "components/_c-accordion";
-// @INSERT :: END
-```
-
-### Include: JavaScript
-
-#### Import
-``` js
-// @INSERT :: START @tag: js-import 
-import Accordion from './modules/accordion/accordion';
-// @INSERT :: END
-```
-
-#### Initializing in Veams V2
-``` js
-// @INSERT :: START @tag: js-init-v2 
-/**
- * Init Accordion
- */
-Helpers.loadModule({
-	el: '[data-js-module="accordion"]',
-	module: Accordion,
-	context: context
-});
-// @INSERT :: END
-```
-
-#### Initializing in Veams V3
-``` js
-// @INSERT :: START @tag: js-init-v3  
-/**
- * Init Accordion
- */
-Helpers.loadModule({
-	domName: 'accordion',
-	module: Accordion,
-	context: context
-});
-// @INSERT :: END
-```
-
-#### Custom Events
-``` js
-// @INSERT :: START @tag: js-events //
-/**
- * Events Accordion
- */
-EVENTS.accordion = {
-	openAll: 'accordion:openAll',
-	closeAll: 'accordion:closeAll'
-};
-// @INSERT :: END
-```
+- activeClass {`String`} ['is-active'] - _Define the active class for active elements._
+- accordionBtn {`String`} ['[data-js-atom='accordion-btn']'] - _Define the element for accordion buttons._
+- accordionContent {`String`} ['[data-js-atom="accordion-content"]'] - _Define the element for accordion content items._
+- calculatingClass {`String`} ['is-calculating'] - _Define the calculating class for the initial calculation cycle._
+- clickHandler {`String`} ['click'] - _Define a click handler for the buttons._
+- closeClass {`String`} ['is-closed'] - _Define the closing class for accordion content items._
+- dataMaxAttr {`String`} ['data-js-height'] - _Define the attribute in which the calculated height is saved._
+- openAllOnInit {`Boolean`} [false] - _If set to true, all panels stays open on render._
+- openByHash {`Boolean`} [false] - _If set to true, panel can be opened by url hash referencing the id of the panel._
+- openClass {`Boolean`} ['is-open'] - _Define the opening class for accordion content items._
+- openIndex {`Number`} [null] - _Index of panel to be opened on init (zero based)._
+- openOnViewports {`Array`} [ ['desktop', 'tablet-large', 'tablet-small'] ] - _Viewports on which the openIndex panel is opened on init._
+- singleOpen {`Boolean`} [false] - _If set to true, only one panel can be opened at the same time._
+- tabMode {`Boolean`} [false] - _If set to true, the accordion behaves like a tab module (click on active button will not close corresponding panel)._
+- unresolvedClass {`String`} ['is-unresolved'] - _Define the unresolved class for the whole accordion which will be deleted after `initialize()` and `render()` is finished._
