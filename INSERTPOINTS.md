@@ -22,31 +22,31 @@
 ### Include: SCSS
 
 ``` scss
-// @INSERT :: START @tag: scss-import 
+// @INSERT :: START @tag: scss-import //
 @import "components/_c-accordion";
-// @INSERT :: END
+// @INSERT :: END //
 
-// @INSERT :: START @tag: scss-import-self-contained
+// @INSERT :: START @tag: scss-import-self-contained //
 @import "../templating/partials/components/accordion/scss/_c-accordion";
-// @INSERT :: END
+// @INSERT :: END //
 ```
 
 ### Include: JavaScript
 
 #### Import
 ``` js
-// @INSERT :: START @tag: js-import 
+// @INSERT :: START @tag: js-import //
 import Accordion from './modules/accordion/accordion';
-// @INSERT :: END/
+// @INSERT :: END //
 
-/ @INSERT :: START @tag: js-import-self-contained
+/ @INSERT :: START @tag: js-import-self-contained //
 import Accordion from '../templating/partials/components/accordion/js/accordion';
-// @INSERT :: END
+// @INSERT :: END //
 ```
 
 #### Initializing in Veams V2
 ``` js
-// @INSERT :: START @tag: js-init-v2 
+// @INSERT :: START @tag: js-init-v2 //
 /**
  * Init Accordion
  */
@@ -55,12 +55,12 @@ Helpers.loadModule({
 	module: Accordion,
 	context: context
 });
-// @INSERT :: END
+// @INSERT :: END //
 ```
 
 #### Initializing in Veams V3 or V4
 ``` js
-// @INSERT :: START @tag: js-init-v3  
+// @INSERT :: START @tag: js-init-v3 //
 /**
  * Init Accordion
  */
@@ -69,7 +69,7 @@ Helpers.loadModule({
 	module: Accordion,
 	context: context
 });
-// @INSERT :: END
+// @INSERT :: END //
 ```
 
 #### Custom Events
@@ -82,5 +82,5 @@ EVENTS.accordion = {
 	openAll: 'accordion:openAll',
 	closeAll: 'accordion:closeAll'
 };
-// @INSERT :: END
+// @INSERT :: END //
 ```
