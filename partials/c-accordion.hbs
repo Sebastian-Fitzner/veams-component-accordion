@@ -1,6 +1,6 @@
-<div class="c-accordion{{#if options.settings.contextClass}}--{{options.settings.contextClass}}{{else}}--default{{/if}}{{#if options.settings.classes}} {{options.settings.classes}}{{/if}}"
-     data-css="c-accordion" data-js-module="accordion"{{#if options.settings.jsOptions}} data-js-options='{
-     {{#each options.settings.jsOptions}}"{{jsKey}}": {{#unless jsObject}}"{{/unless}}{{{jsValue}}}{{#unless jsObject}}"{{/unless}}{{#if @last}}{{else}}, {{/if}}{{/each}}
-     }'{{/if}} role="tablist">
+<div class="c-accordion{{#if options.settings.accContextClass}}--{{options.settings.accContextClass}}{{else}}--default{{/if}}{{#if options.settings.accClasses}} {{options.settings.accClasses}}{{/if}}"
+     data-css="c-accordion"
+     data-js-module="accordion"{{#if options.settings.accJsOptions}}
+     data-js-options='{{stringify options.settings.accJsOptions}}'{{/if}} role="tablist">
 	{{{yield}}}
 </div>

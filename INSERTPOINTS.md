@@ -58,7 +58,7 @@ Helpers.loadModule({
 // @INSERT :: END
 ```
 
-#### Initializing in Veams V3
+#### Initializing in Veams V3 or V4
 ``` js
 // @INSERT :: START @tag: js-init-v3  
 /**

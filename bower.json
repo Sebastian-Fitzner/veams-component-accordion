@@ -1,6 +1,6 @@
 {
 	"name": "veams-component-accordion",
-	"version": "2.0.1",
+	"version": "2.0.3",
 	"ignore": [
 		".bowerrc",
 		".gitignore",
@@ -10,10 +10,6 @@
 		{
 			"name": "Sebastian Fitzner",
 			"email": "sebastian@veams.org"
-		},
-		{
-			"name": "Andy Gutsche",
-			"email": "andy@veams.org"
 		}
 	],
 	"repository": {

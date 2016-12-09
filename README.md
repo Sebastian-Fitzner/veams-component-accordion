@@ -1,100 +1,72 @@
+<p align='right'>
+    <a href='https://badge.fury.io/bo/veams-component-accordion'><img src='https://badge.fury.io/bo/veams-component-accordion.svg' alt='Bower version' height='20'></a>
+    <a href='https://gitter.im/Sebastian-Fitzner/Veams?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge'><img src='https://badges.gitter.im/Sebastian-Fitzner/Veams.svg' alt='Gitter Chat' /></a>
+</p>
+
 # Accordion
 
-Todo: Tabmode CSS
+## Description
 
-The component represents a simple accordion with `transitions` and `max-height`.
+The component represents a simple accordion with `transitions` and `max-height`. 
 
 Accordions are elements used to expand and collapse content that is broken into logical sections, much like tabs.
 
-This component is based on the blueprint of Veams-Components.
+The accordion is based on the blueprint of Veams-Components and is a wrap-with component to support flexible content with predefined surrounded markup.
 
-## Version
+The accordion is jQuery-free (we use Veams-Query) and contains some accessiblity functionality.
 
-Latest version is ```v2.0.1```
+-----------
 
 ## Requirements
+- `Veams-JS >= v4.0.0` - Basic JavaScript library. 
+- `_get-media.scss` - Contains media queries for JavaScript.
 
-### JavaScript
-- `Veams-JS >= v4.0.0`
+-----------
 
-### Sass
-- `_get-media.scss`
+## Installation 
 
-## Usage
+### Installation with Veams
 
-### Options:
+`veams install vc accordion`
 
-#### activeClass
-`Type: String` | `Default: is-active`
+### Installation with Bower
 
-Define the active class for active elements.
+`bower install veams-component-accordion --save`
 
-#### accordionBtn
-`Type: String` | `Default: [data-js-atom="accordion-btn"]`
+----------- 
 
-Define the element for accordion buttons
+## Fields
 
-#### accordionContent
-`Type: String` | `Default: [data-js-atom="accordion-content"]`
+### `c-accordion.hbs`
 
-Define the element for accordion content items.
+#### Settings
+- settings.accContextClass {`String`} [default] - _Context class of component._
+- settings.accClasses {`String`} - _Modifier classes for component._
+- settings.accJsOptions {`Object`} - _JavaScript options which gets stringified._
 
-#### calculatingClass
-`Type: String` | `Default: is-calculating`
+### `c-accordion__item.hbs`
 
-Define the calculating class for the initial calculation cycle.
+#### Settings
+- settings.accHideWrapper {`Boolean`} - _Hide wrapper div `.accordion__item`._
 
-#### clickHandler
-`Type: String` | `Default: click`
+#### Further Parameters 
+- accItemId {`String`} - _Id of the accordion item._
+- accButton {`String`} - _Button text for accordion item._
 
-Define a click handler for the buttons.
+## JavaScript Options
 
-#### closeClass
-`Type: String` | `Default: is-closed`
-
-Define the closing class for accordion content items.
-
-#### dataMaxAttr
-`Type: String` | `Default: data-js-height`
-
-Define the attribute in which the calculated height is saved.
-
-#### openAllOnInit
-`Type: Boolean` | `Default: false`
-
-If set to true, all panels stays open on render.
-
-#### openByHash
-`Type: Boolean` | `Default: false`
-
-If set to true, panel can be opened by url hash referencing the id of the panel
-
-#### openClass
-`Type: Boolean` | `Default: is-open`
-
-Define the opening class for accordion content items.
-
-#### openIndex
-`Type: Number` | `Default: null`
-
-Index of panel to be opened on init (zero based)
-
-#### openOnViewports
-`Type: Array` | `Default: ['desktop', 'tablet-large', 'tablet-small']`
-
-Viewports on which the openIndex panel is opened on init
-
-#### singleOpen
-`Type: Boolean` | `Default: false`
-
-If set to true, only one panel can be opened at the same time
-
-#### tabMode
-`Type: Boolean` | `Default: false`
-
-If set to true, the accordion behaves like a tab module (click on active button will not close corresponding panel).
-
-#### unresolvedClass
-`Type: String` | `Default: is-unresolved`
-
-Define the unresolved class for the whole accordion which will be deleted after `initialize()` and `render()` is finished.
+- activeClass {`String`} ['is-active'] - _Define the active class for active elements._
+- accordionBtn {`String`} ['[data-js-atom='accordion-btn']'] - _Define the element for accordion buttons._
+- accordionContent {`String`} ['[data-js-atom="accordion-content"]'] - _Define the element for accordion content items._
+- calculatingClass {`String`} ['is-calculating'] - _Define the calculating class for the initial calculation cycle._
+- clickHandler {`String`} ['click'] - _Define a click handler for the buttons._
+- closeClass {`String`} ['is-closed'] - _Define the closing class for accordion content items._
+- dataMaxAttr {`String`} ['data-js-height'] - _Define the attribute in which the calculated height is saved._
+- openAllOnInit {`Boolean`} [false] - _If set to true, all panels stays open on render._
+- openByHash {`Boolean`} [false] - _If set to true, panel can be opened by url hash referencing the id of the panel._
+- openClass {`Boolean`} ['is-open'] - _Define the opening class for accordion content items._
+- openIndex {`Number`} [null] - _Index of panel to be opened on init (zero based)._
+- openOnViewports {`Array`} [ ['desktop', 'tablet-large', 'tablet-small'] ] - _Viewports on which the openIndex panel is opened on init._
+- singleOpen {`Boolean`} [false] - _If set to true, only one panel can be opened at the same time._
+- tabMode {`Boolean`} [false] - _If set to true, the accordion behaves like a tab module (click on active button will not close corresponding panel)._
+- unresolvedClass {`String`} ['is-unresolved'] - _Define the unresolved class for the whole accordion which will be deleted after `initialize()` and `render()` is finished._

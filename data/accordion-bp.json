@@ -5,8 +5,8 @@
 				"variationName": "Simple Accordion"
 			},
 			"settings": {
-				"contextClass": "default",
-				"classes": false
+				"accContextClass": "default",
+				"accClasses": false
 			},
 			"content": {
 				"items": [
@@ -26,20 +26,12 @@
 				"variationName": "Single Open Accordion with Default Openings"
 			},
 			"settings": {
-				"contextClass": "default",
-				"classes": "is-some-modifier",
-				"jsOptions": [
-					{
-						"jsKey": "openIndex",
-						"jsValue": 0,
-						"jsObject": true
-					},
-					{
-						"jsKey": "singleOpen",
-						"jsValue": true,
-						"jsObject": true
-					}
-				]
+				"accContextClass": "default",
+				"accClasses": "is-some-modifier",
+				"accJsOptions": {
+					"openIndex": 0,
+					"singleOpen": true
+				}
 			},
 			"content": {
 				"items": [

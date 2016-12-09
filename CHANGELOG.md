@@ -1,6 +1,8 @@
+### v2.0.3
+- Include stringify
+
 ### v2.0.1
 - Clean up
-- Add roles 
 - Add new structure
 
 ### v2.0.0
