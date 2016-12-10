@@ -53,7 +53,11 @@ The accordion is jQuery-free (we use Veams-Query) and contains some accessiblity
 - accItemId {`String`} - _Id of the accordion item._
 - accButton {`String`} - _Button text for accordion item._
 
+-------------
+
 ## JavaScript Options
+
+The module gives you the possibility to override default options: 
 
 - activeClass {`String`} ['is-active'] - _Define the active class for active elements._
 - accordionBtn {`String`} ['[data-js-atom='accordion-btn']'] - _Define the element for accordion buttons._
@@ -70,3 +74,17 @@ The accordion is jQuery-free (we use Veams-Query) and contains some accessiblity
 - singleOpen {`Boolean`} [false] - _If set to true, only one panel can be opened at the same time._
 - tabMode {`Boolean`} [false] - _If set to true, the accordion behaves like a tab module (click on active button will not close corresponding panel)._
 - unresolvedClass {`String`} ['is-unresolved'] - _Define the unresolved class for the whole accordion which will be deleted after `initialize()` and `render()` is finished._
+
+------------
+
+## Sass Options
+
+There are multiple global variables which you can change: 
+- $accordion-toggle-duration [`300ms !default`] - _Speed of toggling._
+- $accordion-transition-method [`ease !default`] - _Transition method of toggle effect._
+- $accordion-icon-color [`#666 !default`] - _+ icon color._
+- $accordion-icon-width [`30px !default`] - _+ icon width._
+- $accordion-icon-height [`2px !default`] - _+ icon height._
+- $accordion-btn-color `[$accordion-icon-color !default`] - _Accordion button color._
+- $accordion-btn-bg-color [`rgba(255, 255, 255, 0.5) !default`] - _Background color of the accordion button._
+- $accordion-padding [`1rem !default`] - _Default padding which will be used in the accordion._

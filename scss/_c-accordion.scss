@@ -2,6 +2,21 @@
 Accordion
 =================================================== */
 
+/* ---------------------------------------------------
+Global Variables
+--------------------------------------------------- */
+$accordion-toggle-duration: 300ms !default;
+$accordion-transition-method: ease !default;
+$accordion-icon-color: #666 !default;
+$accordion-icon-width: 30px !default;
+$accordion-icon-height: 2px !default;
+$accordion-btn-color: $accordion-icon-color !default;
+$accordion-btn-bg-color: rgba(255, 255, 255, 0.5) !default;
+$accordion-padding: 1rem !default;
+
+/* ---------------------------------------------------
+Global Styles
+--------------------------------------------------- */
 [data-css="c-accordion"] {
 	position: relative;
 
@@ -40,12 +55,12 @@ Accordion
 	----------------------- */
 	.is-closed {
 		height: 0;
-		transition: height $transition-ease-method $transition-duration/2;
+		transition: height $accordion-transition-method $accordion-toggle-duration;
 		overflow: hidden;
 	}
 
 	.is-open {
-		transition: height $transition-ease-method $transition-duration/2;
+		transition: height $accordion-transition-method $accordion-toggle-duration;
 		overflow: hidden;
 	}
 
@@ -66,26 +81,26 @@ Context: Default
 	Header/ Toggle Button
 	----------------------- */
 	.accordion__btn {
-		color: #666;
+		color: $accordion-btn-color;
 		display: block;
-		font-size: 2rem;
-		padding: 1rem * 2.4 1rem 1rem * 2.2 1rem;
+		font-size: $accordion-padding * 2;
+		padding: ($accordion-padding * 2.4) $accordion-padding ($accordion-padding * 2.2) $accordion-padding;
 		position: relative;
 		text-decoration: none;
 		text-transform: uppercase;
-		background-color: rgba(255, 255, 255, 0.5);
+		background-color: $accordion-btn-bg-color;
 		margin-bottom: 2px;
 
 		&::before,
 		&::after {
 			@extend %pseudo;
 
-			transition: bottom $transition-duration/2 linear $transition-duration/2, transform $transition-duration/2 linear;
-			background-color: #666;
-			height: 2px;
-			right: 10px;
+			transition: bottom $accordion-toggle-duration linear $accordion-toggle-duration, transform $accordion-toggle-duration linear;
+			background-color: $accordion-icon-color;
+			height: $accordion-icon-height;
+			right: $accordion-padding;
 			top: 50%;
-			width: 30px;
+			width: $accordion-icon-width;
 		}
 
 		&::after {
@@ -100,11 +115,17 @@ Context: Default
 		}
 	}
 
+	/*
+	Icon
+	----------------------- */
 	.accordion__icon {
 		position: relative;
 	}
 
+	/*
+	Content
+	----------------------- */
 	.accordion__content-inner {
-		padding: 1rem 0;
+		padding: $accordion-padding 0;
 	}
 }
