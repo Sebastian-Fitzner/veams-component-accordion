@@ -1,4 +1,4 @@
-{{#unless options.noWrapper}}
+{{#unless options.settings.accNoWrapper}}
 	<div class="accordion__item">
 {{/unless}}
 	<div class="accordion__header">
@@ -17,6 +17,6 @@
 			{{{yield}}}
 		</div>
 	</div>
-{{#unless options.noWrapper}}
+{{#unless options.settings.accNoWrapper}}
 	</div>
 {{/unless}}

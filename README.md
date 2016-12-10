@@ -47,7 +47,7 @@ The accordion is jQuery-free (we use Veams-Query) and contains some accessiblity
 ### `c-accordion__item.hbs`
 
 #### Settings
-- settings.accHideWrapper {`Boolean`} - _Hide wrapper div `.accordion__item`._
+- settings.accNoWrapper {`Boolean`} - _Hide wrapper div `.accordion__item`._
 
 #### Further Parameters 
 - accItemId {`String`} - _Id of the accordion item._
