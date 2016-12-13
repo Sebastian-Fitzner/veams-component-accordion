@@ -26,7 +26,7 @@
 @import "components/_c-accordion";
 // @INSERT :: END //
 
-// @INSERT :: START @tag: scss-import-self-contained //
+// @INSERT :: START @tag: scss-self-contained-import //
 @import "../templating/partials/components/accordion/scss/_c-accordion";
 // @INSERT :: END //
 ```
@@ -39,7 +39,7 @@
 import Accordion from './modules/accordion/accordion';
 // @INSERT :: END //
 
-/ @INSERT :: START @tag: js-import-self-contained //
+/ @INSERT :: START @tag: js-self-contained-import //
 import Accordion from '../templating/partials/components/accordion/js/accordion';
 // @INSERT :: END //
 ```
