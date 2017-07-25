@@ -24,8 +24,8 @@ class Accordion extends VeamsComponent {
 	constructor(obj) {
 		let options = {
 			activeClass: 'is-active',
-			accordionBtn: '[data-js-atom="accordion-btn"]',
-			accordionContent: '[data-js-atom="accordion-content"]',
+			accordionBtn: '[data-js-item="accordion-btn"]',
+			accordionContent: '[data-js-item="accordion-content"]',
 			calculatingClass: 'is-calculating',
 			clickHandler: 'click',
 			closeClass: 'is-closed',
