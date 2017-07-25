@@ -18,8 +18,7 @@ The accordion is jQuery-free (we use Veams-Query) and contains some accessiblity
 -----------
 
 ## Requirements
-- `Veams-JS >= v4.0.0` - Basic JavaScript library. 
-- `_get-media.scss` - Contains media queries for JavaScript.
+- `Veams >= v5.0.0` - Veams Framework.
 
 -----------
 

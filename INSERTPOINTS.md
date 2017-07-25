@@ -44,31 +44,15 @@ import Accordion from '../templating/partials/components/accordion/js/accordion'
 // @INSERT :: END //
 ```
 
-#### Initializing in Veams V2
+#### Initializing in Veams V5
 ``` js
-// @INSERT :: START @tag: js-init-v2 //
-/**
- * Init Accordion
- */
-Helpers.loadModule({
-	el: '[data-js-module="accordion"]',
-	module: Accordion,
-	context: context
-});
-// @INSERT :: END //
-```
-
-#### Initializing in Veams V3 or V4
-``` js
-// @INSERT :: START @tag: js-init-v3 //
-/**
- * Init Accordion
- */
-Helpers.loadModule({
-	domName: 'accordion',
-	module: Accordion,
-	context: context
-});
+// @INSERT :: START @tag: js-init-v5 //
+ 	,
+ 	// Init Accordion
+ 	{
+ 		namespace: 'accordion',
+ 		module: Accordion
+ 	}
 // @INSERT :: END //
 ```
 

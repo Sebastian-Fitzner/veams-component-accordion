@@ -2,7 +2,7 @@
  * Represents a simple accordion with transitions and max-height.
  *
  * @module Accordion
- * @version v2.0.6
+ * @version v3.0.0
  *
  * @author Sebastian Fitzner
  * @author Andy Gutsche
@@ -11,16 +11,16 @@
 /**
  * Requirements
  */
-import App from 'app';
-import AppModule from 'app-module';
+import { Veams } from 'app';
+import VeamsComponent from 'veams/src/js/common/component';
 
-const $ = App.$;
-const Helpers = App.Helpers;
+const $ = Veams.$;
+const Helpers = Veams.helpers;
 
 /**
  * Class Accordion
  */
-class Accordion extends AppModule {
+class Accordion extends VeamsComponent {
 	constructor(obj) {
 		let options = {
 			activeClass: 'is-active',
@@ -46,12 +46,11 @@ class Accordion extends AppModule {
 		};
 
 		super(obj, options);
-		App.registerModule && App.registerModule(Accordion.info, this.el);
 	}
 
-	/**
-	 * GETTER AND SETTER
-	 */
+	/** =================================================
+	 * GETTER & SETTER
+	 * ================================================ */
 
 	/**
 	 * Get module information
@@ -59,7 +58,7 @@ class Accordion extends AppModule {
 	static get info() {
 		return {
 			name: 'Accordion',
-			version: '2.0.6',
+			version: '3.0.0',
 			vc: true,
 			mod: false // set to true if source was modified in project
 		};
@@ -97,6 +96,30 @@ class Accordion extends AppModule {
 		return this._$btn;
 	}
 
+	/** =================================================
+	 * EVENTS
+	 * ================================================ */
+	get events() {
+		return {
+			'{{this.options.clickHandler}} {{this.options.accordionBtn}}': 'handleClick'
+		}
+	}
+
+	get subscribe() {
+		return {
+			'{{Veams.EVENTS.resize}}': 'render',
+			'{{Veams.EVENTS.accordion.closeAll}}': 'closeAll',
+			'{{Veams.EVENTS.accordion.openAll}}': 'openAll'
+		}
+	}
+
+	/** =================================================
+	 * STANDARD METHODS
+	 * ================================================= */
+
+	/**
+	 * Init method to save all necessary references.
+	 */
 	initialize() {
 		this.$accordionContents = $(this.options.accordionContent, this.$el);
 		this.$accordionBtns = $(this.options.accordionBtn, this.$el);
@@ -112,36 +135,23 @@ class Accordion extends AppModule {
 		else if (this.options.tabMode && !this.options.openIndex) {
 			this.openIndex = 0;
 		}
-
-		// call super
-		super.initialize();
 	}
 
 	/**
 	 * Bind all events
 	 */
 	bindEvents() {
-		let fnRender = this.render.bind(this);
-		let fnHandleClick = this.handleClick.bind(this);
-		let fnCloseAll = this.closeAll.bind(this);
-		let fnOpenAll = this.openAll.bind(this);
 		let fnOnHashChange = this.onHashChange.bind(this);
-
-		// Local events
-		this.$el.on(this.options.clickHandler, this.options.accordionBtn, fnHandleClick);
 
 		// Global events
 		if (this.options.openByHash) {
-			$(window).on(App.EVENTS.hashchange, fnOnHashChange);
+			$(window).on(Veams.EVENTS.hashchange, fnOnHashChange);
 		}
-		App.Vent.on(App.EVENTS.resize, fnRender);
-		App.Vent.on(App.EVENTS.accordion.closeAll, fnCloseAll);
-		App.Vent.on(App.EVENTS.accordion.openAll, fnOpenAll);
 	}
 
 	render() {
-		if (!App.currentMedia) {
-			console.warn('Accordion: App.currentMedia is necessary to support the slider module!');
+		if (!Veams.currentMedia) {
+			console.warn('Accordion: Veams.currentMedia is necessary to support the slider module!');
 			return;
 		}
 
@@ -155,7 +165,7 @@ class Accordion extends AppModule {
 
 		// Open on index if set in options
 		if (typeof this.openIndex === 'number') {
-			if (this.options.tabMode || this.options.openOnViewports.indexOf(App.currentMedia) !== -1) {
+			if (this.options.tabMode || this.options.openOnViewports.indexOf(Veams.currentMedia) !== -1) {
 				this.activateBtn(this.$accordionBtns.eq(this.openIndex));
 				this.slideDown(this.$accordionContents.eq(this.openIndex));
 			}
@@ -165,6 +175,10 @@ class Accordion extends AppModule {
 			this.$el.removeClass(this.options.unresolvedClass);
 		}
 	}
+
+	/** =================================================
+	 * CUSTOM ACCORDION METHODS
+	 * ================================================= */
 
 	/**
 	 * Get index of accordion content referenced by hash
