@@ -1,3 +1,6 @@
+### v3.0.2
+- Update readme
+
 ### v3.0.1
 - Change atom to item.
 

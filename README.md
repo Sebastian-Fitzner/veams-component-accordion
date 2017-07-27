@@ -59,8 +59,8 @@ The accordion is jQuery-free (we use Veams-Query) and contains some accessiblity
 The module gives you the possibility to override default options: 
 
 - activeClass {`String`} ['is-active'] - _Define the active class for active elements._
-- accordionBtn {`String`} ['[data-js-atom='accordion-btn']'] - _Define the element for accordion buttons._
-- accordionContent {`String`} ['[data-js-atom="accordion-content"]'] - _Define the element for accordion content items._
+- accordionBtn {`String`} ['[data-js-item='accordion-btn']'] - _Define the element for accordion buttons._
+- accordionContent {`String`} ['[data-js-item="accordion-content"]'] - _Define the element for accordion content items._
 - calculatingClass {`String`} ['is-calculating'] - _Define the calculating class for the initial calculation cycle._
 - clickHandler {`String`} ['click'] - _Define a click handler for the buttons._
 - closeClass {`String`} ['is-closed'] - _Define the closing class for accordion content items._
