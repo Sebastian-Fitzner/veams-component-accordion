@@ -1,3 +1,6 @@
+### v4.0.0
+- Update insertpoints paths for new folder structure (used in generator-veams v9.x)
+
 ### v3.0.2
 - Update readme
 
