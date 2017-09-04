@@ -1,3 +1,6 @@
+### v4.0.2
+- Remove bower.json and bower badge
+
 ### v4.0.1
 - Unify components folder structure
 
