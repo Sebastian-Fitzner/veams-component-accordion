@@ -28,10 +28,6 @@ The accordion is jQuery-free (we use Veams-Query) and contains some accessiblity
 
 `veams install vc accordion`
 
-### Installation with Bower
-
-`bower install veams-component-accordion --save`
-
 ----------- 
 
 ## Fields
