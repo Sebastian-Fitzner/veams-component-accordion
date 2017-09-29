@@ -1,6 +1,6 @@
 {
 	"name": "veams-component-accordion",
-	"version": "4.0.3",
+	"version": "5.0.0",
 	"description": "The component represents a simple accordion with `transitions` and `max-height`.",
 	"repository": {
 		"type": "git",

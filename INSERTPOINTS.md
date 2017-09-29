@@ -19,24 +19,10 @@
 {{! @INSERT :: END }}
 ```
 
-### Include: SCSS
-
-``` scss
-// @INSERT :: START @tag: scss-self-contained-import //
-@import "../components/accordion/scss/_c-accordion";
-// @INSERT :: END //
-```
-
 ### Include: JavaScript
 
-#### Import
-``` js
-// @INSERT :: START @tag: js-self-contained-import //
-import Accordion from '../components/accordion/js/accordion';
-// @INSERT :: END //
-```
-
 #### Initializing in Veams V5
+
 ``` js
 // @INSERT :: START @tag: js-init-v5 //
  	,
@@ -49,6 +35,7 @@ import Accordion from '../components/accordion/js/accordion';
 ```
 
 #### Custom Events
+
 ``` js
 // @INSERT :: START @tag: js-events //
 /**
