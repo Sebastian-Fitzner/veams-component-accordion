@@ -8,7 +8,7 @@
 		"c-accordion__item.hbs"
 	],
 	"scssFiles": [
-		"c-accordion.scss"
+		"_c-accordion.scss"
 	],
 	"jsFiles": [
 		"accordion.js"
