@@ -1,3 +1,6 @@
+### v5.1.1
+- Remove unused prop
+
 ### v5.1.0
 - Add settings json for component
 
