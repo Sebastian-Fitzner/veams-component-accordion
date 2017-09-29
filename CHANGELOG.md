@@ -1,3 +1,6 @@
+### v5.1.0
+- Add settings json for component
+
 ### v5.0.0
 - Update folder structure to be in sync with latest generator output
 - Remove import snippets from INSERTPOINTS.md
