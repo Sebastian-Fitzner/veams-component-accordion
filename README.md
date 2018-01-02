@@ -32,14 +32,14 @@ The accordion is jQuery-free (we use Veams-Query) and contains some accessiblity
 
 ## Fields
 
-### `c-accordion.hbs`
+### `accordion.hbs`
 
 #### Settings
 - settings.accContextClass {`String`} [default] - _Context class of component._
 - settings.accClasses {`String`} - _Modifier classes for component._
 - settings.accJsOptions {`Object`} - _JavaScript options which gets stringified._
 
-### `c-accordion__item.hbs`
+### `accordion__item.hbs`
 
 #### Settings
 - settings.accNoWrapper {`Boolean`} - _Hide wrapper div `.accordion__item`._

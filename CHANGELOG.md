@@ -1,3 +1,6 @@
+### v5.2.2
+- Update readme
+
 ### v5.2.1
 - Fix template name in usage
 
