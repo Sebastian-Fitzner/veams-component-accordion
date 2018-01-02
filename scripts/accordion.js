@@ -2,7 +2,7 @@
  * Represents a simple accordion with transitions and max-height.
  *
  * @module Accordion
- * @version v5.2.0
+ * @version v5.2.1
  *
  * @author Sebastian Fitzner
  * @author Andy Gutsche
@@ -58,7 +58,7 @@ class Accordion extends VeamsComponent {
 	 */
 	static get info() {
 		return {
-			version: '5.2.0',
+			version: '5.2.1',
 			vc: true,
 			mod: false // set to true if source was modified in project
 		};
