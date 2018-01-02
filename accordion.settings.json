@@ -1,16 +1,15 @@
 {
 	"type": "component",
-	"displayName": "c-accordion",
 	"contextData": "accordion-bp",
 	"layout": "lyt-docs",
 	"subTemplates": [
-		"c-accordion.hbs",
-		"c-accordion__item.hbs"
+		"templates/accordion.hbs",
+		"templates/accordion__item.hbs"
 	],
 	"scssFiles": [
-		"_c-accordion.scss"
+		"styles/_accordion.scss"
 	],
 	"jsFiles": [
-		"accordion.js"
+		"scripts/accordion.js"
 	]
 }

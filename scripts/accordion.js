@@ -2,7 +2,7 @@
  * Represents a simple accordion with transitions and max-height.
  *
  * @module Accordion
- * @version v5.1.2
+ * @version v5.2.0
  *
  * @author Sebastian Fitzner
  * @author Andy Gutsche
@@ -11,16 +11,17 @@
 /**
  * Requirements
  */
-import { Veams } from 'app';
-import VeamsComponent from 'veams/src/js/common/component';
+import { Veams } from 'app.veams';
+import VeamsComponent from 'veams/lib/common/component';
+import forEach from 'veams-helpers/lib/array/for-each';
 
 const $ = Veams.$;
-const Helpers = Veams.helpers;
 
 /**
  * Class Accordion
  */
 class Accordion extends VeamsComponent {
+
 	constructor(obj) {
 		let options = {
 			activeClass: 'is-active',
@@ -57,7 +58,7 @@ class Accordion extends VeamsComponent {
 	 */
 	static get info() {
 		return {
-			version: '5.1.2',
+			version: '5.2.0',
 			vc: true,
 			mod: false // set to true if source was modified in project
 		};
@@ -229,7 +230,7 @@ class Accordion extends VeamsComponent {
 	 * @param {Array} items - array of items
 	 */
 	saveHeights(items) {
-		Helpers.forEach(items, (idx, item) => {
+		forEach(items, (idx, item) => {
 			this.saveHeight(item);
 		});
 	}
@@ -358,10 +359,10 @@ class Accordion extends VeamsComponent {
 	 * @public
 	 */
 	closeAll() {
-		Helpers.forEach(this.$accordionContents, (idx, item) => {
+		forEach(this.$accordionContents, (idx, item) => {
 			this.slideUp($(item));
 		});
-		Helpers.forEach(this.$accordionBtns, (idx, item) => {
+		forEach(this.$accordionBtns, (idx, item) => {
 			this.deactivateBtn($(item));
 		});
 	}
@@ -372,10 +373,10 @@ class Accordion extends VeamsComponent {
 	 * @public
 	 */
 	openAll() {
-		Helpers.forEach(this.$accordionContents, (idx, item) => {
+		forEach(this.$accordionContents, (idx, item) => {
 			this.slideDown($(item));
 		});
-		Helpers.forEach(this.$accordionBtns, (idx, item) => {
+		forEach(this.$accordionBtns, (idx, item) => {
 			this.activateBtn($(item));
 		});
 	}

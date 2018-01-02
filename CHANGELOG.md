@@ -1,3 +1,6 @@
+### v5.2.0
+- Make component compatible with veams-cli@2.0.xx
+
 ### v5.1.2
 - Fix scss file reference in settings
 
