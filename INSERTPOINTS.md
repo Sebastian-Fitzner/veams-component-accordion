@@ -25,7 +25,7 @@
 #### Initializing in Veams (@veams/plugin-modules v1.x)
 
 ``` js
-// @INSERT :: START @tag: js-init-@1 //
+// @INSERT :: START @tag: js-init-modules-@1 //
 // Init Accordion
 Veams.modules.add({ namespace: 'accordion', module: Accordion });
 // @INSERT :: END //
