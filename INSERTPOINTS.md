@@ -4,7 +4,7 @@
 
 ``` hbs
 {{! @INSERT :: START @id: accordion, @tag: component-partial }}
-{{#with accordion-bp.variations.simple}}
+{{#with accordion.variations.simple}}
     {{! WrapWith START: Accordion }}
     {{#wrapWith "accordion" settings=this.settings}}
     {{! WrapWith START: Item }}
@@ -22,12 +22,12 @@
 
 ### Include: JavaScript
 
-#### Initializing in Veams V5
+#### Initializing in Veams (@veams/plugin-modules v1.x)
 
 ``` js
-// @INSERT :: START @tag: js-init-v5 //
-	// Init Accordion
-	Veams.modules.add({ namespace: 'accordion', module: Accordion });
+// @INSERT :: START @tag: js-init-@1 //
+// Init Accordion
+Veams.modules.add({ namespace: 'accordion', module: Accordion });
 // @INSERT :: END //
 ```
 
