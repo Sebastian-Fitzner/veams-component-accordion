@@ -1,3 +1,50 @@
+## Namespaced Versions
+
+### v1.0.0
+
+- Migrate to use 
+
+	**@veams/component**
+	
+------------------
+
+## Old Versions 
+
+
+### v5.2.2
+- Update readme
+
+### v5.2.1
+- Fix template name in usage
+
+### v5.2.0
+- Make component compatible with veams-cli@2.0.xx
+
+### v5.1.2
+- Fix scss file reference in settings
+
+### v5.1.1
+- Remove unused prop
+
+### v5.1.0
+- Add settings json for component
+
+### v5.0.0
+- Update folder structure to be in sync with latest generator output
+- Remove import snippets from INSERTPOINTS.md
+
+### v4.0.3
+- Update README
+
+### v4.0.2
+- Remove bower.json and bower badge
+
+### v4.0.1
+- Unify components folder structure
+
+### v4.0.0
+- Update insertpoints paths for new folder structure (used in generator-veams v9.x)
+
 ### v3.0.2
 - Update readme
 

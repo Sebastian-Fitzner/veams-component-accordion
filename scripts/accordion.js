@@ -2,7 +2,7 @@
  * Represents a simple accordion with transitions and max-height.
  *
  * @module Accordion
- * @version v3.0.2
+ * @version v1.0.0
  *
  * @author Sebastian Fitzner
  * @author Andy Gutsche
@@ -11,16 +11,28 @@
 /**
  * Requirements
  */
-import { Veams } from 'app';
-import VeamsComponent from 'veams/src/js/common/component';
 
-const $ = Veams.$;
-const Helpers = Veams.helpers;
+import $ from '@veams/query';
+import Component from '@veams/component';
+import forEach from '@veams/helpers/lib/array/for-each';
 
 /**
  * Class Accordion
  */
-class Accordion extends VeamsComponent {
+class Accordion extends Component {
+	/**
+	 * General Properties
+	 */
+
+		// Elements in Markup
+	$el = $(this.el);
+	_$accordionContents = $(this.options.accordionContent, this.$el);
+	_$accordionBtns = $(this.options.accordionBtn, this.$el);
+	_$target = null;
+	_$btn = null;
+
+	openIndex = this.options.openIndex;
+
 	constructor(obj) {
 		let options = {
 			activeClass: 'is-active',
@@ -35,10 +47,12 @@ class Accordion extends VeamsComponent {
 			openClass: 'is-open',
 			openIndex: null,
 			openOnViewports: [
-				'tablet-small',
-				'tablet-large',
-				'desktop'
-			], // array: viewport names - eg.: ['mobile', 'tablet', 'desktop-small', 'desktop']
+				'tablet-s',
+				'tablet-l',
+				'desktop-s',
+				'desktop-m',
+				'desktop-l'
+			],
 			removeStyles: false, // TODO
 			singleOpen: false,
 			tabMode: false,
@@ -57,8 +71,7 @@ class Accordion extends VeamsComponent {
 	 */
 	static get info() {
 		return {
-			name: 'Accordion',
-			version: '3.0.2',
+			version: '1.0.0',
 			vc: true,
 			mod: false // set to true if source was modified in project
 		};
@@ -107,34 +120,10 @@ class Accordion extends VeamsComponent {
 
 	get subscribe() {
 		return {
-			'{{Veams.EVENTS.resize}}': 'render',
-			'{{Veams.EVENTS.accordion.closeAll}}': 'closeAll',
-			'{{Veams.EVENTS.accordion.openAll}}': 'openAll'
-		}
-	}
-
-	/** =================================================
-	 * STANDARD METHODS
-	 * ================================================= */
-
-	/**
-	 * Init method to save all necessary references.
-	 */
-	initialize() {
-		this.$accordionContents = $(this.options.accordionContent, this.$el);
-		this.$accordionBtns = $(this.options.accordionBtn, this.$el);
-		this.$target = null;
-		this.$btn = null;
-		this.openIndex = this.options.openIndex;
-
-		if (this.options.openByHash) {
-			let idx = this.getIndexByHash();
-
-			this.openIndex = typeof idx === 'number' ? idx : this.options.openIndex;
-		}
-		else if (this.options.tabMode && !this.options.openIndex) {
-			this.openIndex = 0;
-		}
+			'{{this.context.EVENTS.resize}}': 'render',
+			'{{this.context.EVENTS.accordion.closeAll}}': 'closeAll',
+			'{{this.context.EVENTS.accordion.openAll}}': 'openAll'
+		};
 	}
 
 	/**
@@ -145,13 +134,27 @@ class Accordion extends VeamsComponent {
 
 		// Global events
 		if (this.options.openByHash) {
-			$(window).on(Veams.EVENTS.hashchange, fnOnHashChange);
+			$(window).on(this.context.EVENTS.hashchange, fnOnHashChange);
+		}
+	}
+
+	/** =================================================
+	 * STANDARD METHODS
+	 * ================================================= */
+	didMount() {
+		if (this.options.openByHash) {
+			let idx = this.getIndexByHash();
+
+			this.openIndex = typeof idx === 'number' ? idx : this.options.openIndex;
+		}
+		else if (this.options.tabMode && !this.options.openIndex) {
+			this.openIndex = 0;
 		}
 	}
 
 	render() {
-		if (!Veams.currentMedia) {
-			console.warn('Accordion: Veams.currentMedia is necessary to support the slider module!');
+		if (!this.context.currentMedia) {
+			console.warn('Accordion: @veams/plugin-media-query-handler is necessary to support breakpoints in the accordion component!');
 			return;
 		}
 
@@ -165,7 +168,7 @@ class Accordion extends VeamsComponent {
 
 		// Open on index if set in options
 		if (typeof this.openIndex === 'number') {
-			if (this.options.tabMode || this.options.openOnViewports.indexOf(Veams.currentMedia) !== -1) {
+			if (this.options.tabMode || this.options.openOnViewports.indexOf(this.context.currentMedia) !== -1) {
 				this.activateBtn(this.$accordionBtns.eq(this.openIndex));
 				this.slideDown(this.$accordionContents.eq(this.openIndex));
 			}
@@ -230,7 +233,7 @@ class Accordion extends VeamsComponent {
 	 * @param {Array} items - array of items
 	 */
 	saveHeights(items) {
-		Helpers.forEach(items, (idx, item) => {
+		forEach(items, (idx, item) => {
 			this.saveHeight(item);
 		});
 	}
@@ -359,10 +362,10 @@ class Accordion extends VeamsComponent {
 	 * @public
 	 */
 	closeAll() {
-		Helpers.forEach(this.$accordionContents, (idx, item) => {
+		forEach(this.$accordionContents, (idx, item) => {
 			this.slideUp($(item));
 		});
-		Helpers.forEach(this.$accordionBtns, (idx, item) => {
+		forEach(this.$accordionBtns, (idx, item) => {
 			this.deactivateBtn($(item));
 		});
 	}
@@ -373,10 +376,10 @@ class Accordion extends VeamsComponent {
 	 * @public
 	 */
 	openAll() {
-		Helpers.forEach(this.$accordionContents, (idx, item) => {
+		forEach(this.$accordionContents, (idx, item) => {
 			this.slideDown($(item));
 		});
-		Helpers.forEach(this.$accordionBtns, (idx, item) => {
+		forEach(this.$accordionBtns, (idx, item) => {
 			this.activateBtn($(item));
 		});
 	}
