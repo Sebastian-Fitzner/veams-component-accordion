@@ -42,7 +42,7 @@ veams -i c accordion
 
 ### `accordion-usage.hbs`
 
-The partial is a `{{#wrapWith}}` helper. Documentation for [wrapWith](https://github.com/Sebastian-Fitzner/mangony-hbs-helper-wrap-with) helper.
+The partial is a `\{{#wrapWith}}` helper. Documentation for [wrapWith](https://github.com/Sebastian-Fitzner/mangony-hbs-helper-wrap-with) helper.
 
 
 ### `accordion.hbs`

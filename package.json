@@ -6,6 +6,11 @@
 		"type": "git",
 		"url": "git://github.com/Veams/component-accordion.git"
 	},
+	"dependencies": {
+		"@veams/query": "^2.2.24",
+		"@veams/component": "^1.2.3",
+		"@veams/helpers": "^1.2.8"
+	},
 	"keywords": [
 		"veams"
 	],
